@@ -1,7 +1,4 @@
 <?php
-
-session_start();
-
 function validar($datos, $bandera){
   $errores = [];
   if (isset($datos["email"])){
@@ -120,11 +117,10 @@ function sesionUsuario($persona, $info){
   $_SESSION["email"]=$persona["email"];
   $_SESSION["avatar"]=$persona["avatar"];
   if (isset($info["recordar"])) {
-    setcookie("email", $info["email"], time()+60*60*24);
-    setcookie("password", $info["password"], time()+60*60*24);
+    setcookie("email",$info["email"], time()+60*60*24);
+    setcookie("password",$info["password"], time()+60*60*24);
   }
 }
-
 function validarUsuario(){
     if($_SESSION["email"]){
         return true;

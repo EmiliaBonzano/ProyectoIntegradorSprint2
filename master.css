@@ -1,0 +1,62 @@
+.container {
+  min-height: calc(100vh - (89px + 66px));
+  margin-top: 20px;
+}
+
+a{
+  color: inherit;
+}
+a:hover{
+  color: inherit;
+}
+
+form {
+  max-width: 400px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  align-content: center;
+}
+
+.Login  {
+  text-align: center;
+}
+
+.Register {
+  text-align: center;
+}
+
+.btn-secondary{
+border-radius: 2px;
+}
+
+.carousel-item {
+  height:500px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-item.imagen1 {
+  background-image: url('../img/carrousel1.png');
+}
+.carousel-item.imagen2 {
+  background-image: url('../img/carrousel2.png');
+}
+.carousel-item.imagen3 {
+  background-image: url('../img/carrousel3.jpg');
+}
+
+h3 {
+  font-size: 23px;
+}
+table {
+  margin-top: 50px;
+  width: 70%;
+  text-align: center;
+  font-size: 18px;
+}
+
+td, th {
+  padding: 10px;
+}

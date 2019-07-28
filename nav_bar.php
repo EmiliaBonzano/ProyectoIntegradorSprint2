@@ -13,14 +13,14 @@ require_once ("helpers.php");
     <!-- conecto a bootstrap -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Home</title>
+   <title>Skål</title>
    <link rel="stylesheet" href="css/master.css">
    </head>
  <body>
 
     <!-- Pongo div de navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.php">
         <img src="img/logo2.jpg" width="40" height="40" alt="">
         SKÅL
       </a>
@@ -44,12 +44,17 @@ require_once ("helpers.php");
           <li class="nav-item">
             <a class="nav-link" href="faq.php">FAQ's</a>
           </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="abm.php">ABM</a>
+        </li>
 
           <?php if (isset($_SESSION['email']) && $_SESSION['email'] == true): ?>
               <a class="nav-link" href="logout.php">Logout</a>
               <?php else: ?>
-              <a class="nav-link" href="login.php">Login</a>
               <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
+              <a class="nav-link" href="login.php">Login</a>
+
             <?php endif; ?>
 
           </ul>

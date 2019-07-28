@@ -1,0 +1,19 @@
+* Cree los archivos:
+- nuevosProductos.php
+- loader.php: deje comentados los require de los archivos que todavia no se si vamos a usar
+- listadoProductos.php
+
+* Cree la carpeta "clases" con los archivos:
+- clases/baseDeDatos.php: modificar las funciones del administrador (ABM?)
+- clases/productos.php
+- clases/mysql.php
+- clases/query.php: deje todo comentado porque hay que ver esto que no lo vimos todavia, y esta relacionado con el rol de administrador
+- clases/armarRegistro.php: deje todo comentado porque hay que ver esto que no lo vimos todavia, y esta relacionado con listado de usuarios
+- clases/validador.php: este archivo deberia reemplazar el de funciones.php pero hay que ver de linkear bien 	las formulas
+
+*Modificaciones:
+- helpers.php: lineas 16-20
+
+
+- nuevosProductos: ver qué info ademas de nombre, descripcion y precio hay que pasar a la base de datos
+- cambiar el archivo faq.html a php? (ver los links asociados)	

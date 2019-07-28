@@ -2,9 +2,17 @@
   <!-- Pongo div de footer -->
     <footer>
     <div class="card-footer text-muted">
-    <i class="fab fa-facebook-square"></i>
-    <i class="fab fa-instagram"></i>
-    <i class="fab fa-pinterest"></i>
+
+    <a href="https://www.facebook.com" class="icono">
+      <i class="fab fa-facebook-square"></i>
+    </a>
+    <a href="https://www.instagram.com" class="icono">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.pinterest.com" class="icono">
+      <i class="fab fa-pinterest"></i>
+    </a>
+
     <br>
     <p>2019 Powered by Trio </p>
     </div>
