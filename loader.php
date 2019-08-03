@@ -3,6 +3,7 @@
   require_once("clases/mysql.php");
   require_once("clases/productos.php");
   require_once("helpers.php");
+  require_once("clases/validador.php")
 
 /*
 require_once("clases/Usuario.php");

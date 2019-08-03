@@ -5,16 +5,17 @@ require_once ("helpers.php");
 include ("nav_bar.php")?>
 
 <br>
-<h2> Panel de Control</h2>
+<h2 class="text-center"> Panel de Control</h2>
 <br>
+<div class="spacer"></div>
 
-<h3>Usuarios<h3>
 
-<div style="overflow-x:auto;">
-<table>
-  <thead>
+<div class="card" style="overflow-x:auto;">
+  <h3 class="card-header">Usuarios</h3>
+<table class="table">
+  <thead class="thead-light">
     <tr>
-      <th scope="col">Usuario</th>
+      <th scope="col">Nombre</th>
       <th scope="col">Email</th>
       <th scope="col">Tipo de Usuario</th>
       <th scope="col">Modificaciones</th>
@@ -49,12 +50,13 @@ include ("nav_bar.php")?>
   </tbody>
 </table>
 </div>
+<div class="spacer"></div>
 
 
-<h3>Productos<h3>
 <br>
-<div style="overflow-x:auto;">
-<table>
+<div class="card" style="overflow-x:auto;">
+  <h3 class="card-header">Productos<h3>
+<table class="table" >
   <thead>
     <tr>
       <th scope="col">Productos</th>
