@@ -1,8 +1,11 @@
 <?php
 require_once ("funciones.php");
 require_once ("helpers.php");
+require_once("loader.php");
+include ("nav_bar.php");
 
-include ("nav_bar.php")?>
+$usuarios = Query::listado($pdo,"users");
+?>
 
 <br>
 <h2 class="text-center"> Panel de Control</h2>
@@ -13,41 +16,70 @@ include ("nav_bar.php")?>
 <div class="card" style="overflow-x:auto;">
   <h3 class="card-header">Usuarios</h3>
 <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Email</th>
-      <th scope="col">Tipo de Usuario</th>
-      <th scope="col">Modificaciones</th>
-    </tr>
+
+  <thead>
+      <tr>
+          <th>
+              Id
+          </th>
+          <th>
+              Nombre
+          </th>
+          <th>
+              Apellido
+          </th>
+          <th>
+              Email
+          </th>
+          <th>
+              Perfil
+          </th>
+          <th>
+              Ver
+          </th>
+          <th>
+              Editar
+          </th>
+          <th>
+              Eliminar
+          </th>
+      </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Administrador</td>
-      <td> <i class="fas fa-shopping-cart"></i> <i class="fas fa-user-edit"></i><i class="fas fa-user-slash"></i></td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>User</td>
-      <td><i class="fas fa-shopping-cart"></i> <i class="fas fa-user-edit"></i><i class="fas fa-user-slash"></i></td>
-    </tr>
-    <tr>
-      <td> Larry the Bird </td>
-      <td> blah </td>
-      <td>User</td>
-      <td><i class="fas fa-shopping-cart"></i> <i class="fas fa-user-edit"></i><i class="fas fa-user-slash"></i></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="register.php">
-          <i class="fas fa-user-plus"></i>
-        </a>
-      </td>
-    </tr>
+      <?php foreach ($usuarios as $key => $usuario) :?>
+      <tr>
+          <td>
+              <?= $usuario['id'];?>
+          </td>
+          <td>
+              <?= $usuario['nombre'];?>
+          </td>
+          <td>
+              <?= $usuario['apellido'];?>
+          </td>
+          <td>
+              <?= $usuario['email'];?>
+          </td>
+          <td>
+              <?= $usuario['perfil'];?>
+          </td>
+          <td>
+              <a href="perfilUsuario.php?id= <?= $usuario['id'];?>">Ver</a>
+          </td>
+          <td>
+              <a href="editarUsuario.php?id= <?= $usuario['id'];?>">Editar</a>
+          </td>
+          <td>
+              <a href="eliminarUsuario.php">Eliminar</a>
+          </td>
+
+      </tr>
+      <?php endforeach;?>
+
+
   </tbody>
+
+
 </table>
 </div>
 <div class="spacer"></div>

@@ -2,7 +2,8 @@
 class Validador{
     public function validacionUsuario($usuario){
 
-        $errores=array();
+        $errores=[];
+
         $nombre = trim($usuario->getNombre());
         if(isset($nombre)) {
             if(empty($nombre)){
@@ -11,8 +12,8 @@ class Validador{
         }
 
         $email = trim($usuario->getEmail());
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $errores["email"]="Email invalido !!!!!";
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+          $errores["email"]="El email no es válido";
         }
         $password= trim($usuario->getPassword());
 

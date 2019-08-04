@@ -1,16 +1,35 @@
 <?php
+require_once ("loader.php");
 require_once ("funciones.php");
 require_once ("helpers.php");
+
 if($_POST){
-  $errores = validar($_POST, "registro");
-  if(count($errores)==0){
-    $avatar = armarAvatar($_FILES);
-    $usuario = armarUsuario($_POST,$avatar);
-    guardarUsuario($usuario);
-    header("location: login.php");
-    exit;
+ //Aquí genero mi objeto usuario, partiendo de la clase Usuario
+ $usuario = new Usuario($_POST["nombre"],$_POST["apellido"],$_POST["email"],$_POST["password"],$_POST["repassword"],$_FILES );
+ //Aquí verifico si los datos registrados por el usuario pasan las validaciones
+ $errores = $validar->validacionUsuario($usuario, $_POST["repassword"]);
+ //De no existir errores entonces:
+ if(count($errores)==0){
+   //Busco a ver si el usuario existe o no en la base de datos
+   $usuarioEncontrado = Mysql::buscarPorEmail($usuario->getEmail(),$pdo,'users');
+   if($usuarioEncontrado != false){
+     $errores["email"]= "Usuario ya Registrado";
+   }else{
+     //Aquí guardo en el servidor la foto que el usuario seleccionó
+     $avatar = $registro->armarAvatar($usuario->getAvatar());
+     //Aquí procedo a guardar los datos del usuario en la base de datos, ,aquí le paso el objeto PDO, el objeto usuario, la tabla donde se va a guardar los datos y el nombre del archivo de la imagen del usuario.
+     Mysql::guardarUsuario($pdo,$usuario,'users',$avatar);
+     //Aquí redirecciono el usuario al login
+     redirect ("login.php");
+   }
+ }
 }
-}
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>

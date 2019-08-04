@@ -2,14 +2,13 @@
 
 abstract class Mueble{
   protected $id;
-  protected $sku;
   protected $nombre;
   protected $precio;
   protected $material;
   protected $alto;
   protected $ancho;
   protected $profundidad;
-  protected $descripción;
+  protected $descripcion;
 
   public function getId(){
     return $this->id;

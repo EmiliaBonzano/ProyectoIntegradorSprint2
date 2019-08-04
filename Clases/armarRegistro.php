@@ -1,4 +1,5 @@
 <?php
+
 class ArmarRegistro{
     public function armarAvatar($imagen){
         $nombre = $imagen["avatar"]["name"];
@@ -9,7 +10,6 @@ class ArmarRegistro{
         $avatar = uniqid();
         $archivoDestino = $archivoDestino.$avatar;
         $archivoDestino = $archivoDestino.".".$ext;
-
         move_uploaded_file($archivoOrigen,$archivoDestino);
         $avatar = $avatar.".".$ext;
 
@@ -19,11 +19,12 @@ class ArmarRegistro{
     public function armarUsuario($registro,$avatar){
 
         $usuario = [
-            "name"=>$registro->getNombre(),
+            "nombre"=>$registro->getNombre(),
+            "apellido"=>$registro->getApellido(),
             "email"=>$registro->getEmail(),
             "password"=> Encriptar::hashPassword($registro->getPassword()),
             "avatar"=>$avatar,
-            "role"=>1
+            "perfil"=>1
         ];
 
         return $usuario;

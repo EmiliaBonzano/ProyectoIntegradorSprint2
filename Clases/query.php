@@ -1,9 +1,9 @@
 <?php
-/*
+
 class Query{
     static public function listado($pdo,$tabla){
         //Aquí ejecuto la consulta deseada, para mostrar algunos campos del usuario
-        $sql="select $tabla.id, $tabla.name, $tabla.email from $tabla";
+        $sql="select * from $tabla";
         //Aquí ejecuto el prepare de la sentencia, noten que lo estoy ejecutando de forma directa haciendo uso del método query de la clase PDO, es para que vean que se puede trabajar de diferentes formas
         $consulta= $pdo->query($sql);
         //Aquí ejecuto la consulta que tengo preparada, para así traer todos los usuarios registrados y almacenarlos en la variable $listado, la cual retorno
@@ -40,4 +40,3 @@ class Query{
         return $usuarioModificar;
     }
 }
-*/

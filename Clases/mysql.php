@@ -2,9 +2,9 @@
   include_once("BaseDeDatos.php");
 
   class Mysql extends BaseDeDatos {
-    static public function conexion ($host,$db_nombre,$usuario,$password,$puerto,$charset){
+    static public function conexion ($host,$bd,$usuario,$password,$puerto,$charset){
         try {
-            $dsn = "mysql:host=".$host.";"."dbname=".$db_nombre.";"."port=".$puerto.";"."charset=".$charset;
+            $dsn = "mysql:host=".$host.";"."dbname=".$bd.";"."port=".$puerto.";"."charset=".$charset;
             $baseDatos = new PDO($dsn,$usuario,$password);
             $baseDatos->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             return $baseDatos;
@@ -14,7 +14,7 @@
         }
     }
 
-/*
+
 static public function buscarPorEmail($email,$pdo,$tabla){
      //Aquí hago la sentencia select, para buscar el email, estoy usando bindeo de parámetros por value
      $sql = "select * from $tabla where email = :email";
@@ -25,7 +25,7 @@ static public function buscarPorEmail($email,$pdo,$tabla){
      $usuario = $query->fetch(PDO::FETCH_ASSOC);
      return $usuario;
  }
- */
+
 
     static public function guardarProducto($pdo, $tabla, $producto){
       $sql = "insert into $tabla (nombre, descripcion, precio) values (:nombre, :descripcion, :precio)";
@@ -34,6 +34,18 @@ static public function buscarPorEmail($email,$pdo,$tabla){
       $query->bindvalue(':descripcion', $producto->getDescripcion());
       $query->bindvalue(':precio', $producto->getPrecio());
       $query->execute();
+    }
+
+    static public function guardarUsuario($pdo,$usuario,$tabla,$avatar){
+        $sql = "insert into $tabla (nombre,apellido,email,password,avatar,perfil) values (:nombre,:apellido,:email,:password,:avatar,:perfil )";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':nombre',$usuario->getNombre());
+        $query->bindValue(':nombre',$usuario->getApellido());
+        $query->bindValue(':email',$usuario->getEmail());
+        $query->bindValue(':password',Encriptar::hashPassword($usuario->getPassword()));
+        $query->bindValue(':avatar',$avatar);
+        $query->bindValue('perfil',1);
+        $query->execute();
     }
 
 

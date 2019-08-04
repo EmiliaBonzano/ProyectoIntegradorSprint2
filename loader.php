@@ -3,16 +3,16 @@
   require_once("clases/mysql.php");
   require_once("clases/productos.php");
   require_once("helpers.php");
-  require_once("clases/validador.php")
-
+  require_once("clases/validador.php");
+  require_once("clases/armarRegistro.php");
+  require_once("clases/query.php");
+  require_once("clases/Autenticador.php");
+  require_once("clases/Usuario.php");
+  require_once("clases/Encriptar.php");
 /*
-require_once("clases/Usuario.php");
-require_once("clases/Validador.php");
 require_once("clases/ArmarRegistro.php");
 require_once("clases/BaseJSON.php");
-require_once("clases/Encriptar.php");
-require_once("clases/Autenticador.php");
-require_once("clases/Query.php");
+
 */
 
   $host = "localhost";

@@ -7,8 +7,9 @@ class Usuario{
   private $password;
   private $repassword;
   private $avatar;
+  private $perfil;
 
-  public function __construct($email, $password, $repassword=null, $nombre=null, $apellido=null, $avatar=null){
+  public function __construct($nombre=null, $apellido=null, $email, $password, $repassword=null, $avatar=null){
     $this-> email= $email;
     $this-> password = $password;
     $this -> repassword = $repassword;
@@ -56,8 +57,8 @@ class Usuario{
     $this->apellido = $apellido;
   }
 
-  public function getApellido(){
-    return $this->apellido;
+  public function getAvatar(){
+    return $this->avatar;
   }
 
   public function setAvatar($avatar){
