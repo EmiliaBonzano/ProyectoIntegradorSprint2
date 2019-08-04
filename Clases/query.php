@@ -12,19 +12,21 @@ class Query{
     }
     static public function mostrarUsuario($pdo,$tabla,$idUsuario){
         //En esta otra consulta hago uso del statement que ofrece PDO
-        $sql = "select $tabla.id, $tabla.name, $tabla.email, $tabla.avatar,$tabla.role from $tabla where $tabla.id = '$idUsuario'";
+        $sql = "select * from $tabla where id=$idUsuario";
         //Aquí hago el prepare de los datos de mi consulta (Query)
         $query = $pdo->prepare($sql);
         //Aquí ejecuto la consulta
         $query->execute();
         //Aquí hago uso del método fetchAll, pero también puedo usar sólo el métodp fetch, ya que sólo voy a buscar al usuario que cumpla con la condificón indicada
-        $usuarioEncontrado=$query->fetchAll(PDO::FETCH_ASSOC);
+        $usuarioEncontrado=$query->fetch(PDO::FETCH_ASSOC);
         //Retorno el array sólo del usuario encontrado
         return $usuarioEncontrado;
     }
+
+
     static public function borrarUsuario($pdo,$tabla,$idUsuario){
         //Aquí armo el query que deseo, en este caso es el borrado de un usuario específico
-        $sql="delete from $tabla where $tabla.id=:id";
+        $sql="delete from $tabla where id='$id'";
         //Aquí preparo la consulta, tal como me lo indica la secuencia de trabajar con PDO
         $query=$pdo->prepare($sql);
         //Aquí vean que ejecuto el Bindeo de Parámetros - usando el bindValue

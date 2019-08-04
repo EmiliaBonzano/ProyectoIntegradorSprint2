@@ -1,6 +1,6 @@
 <?php
-require_once ("funciones.php");
 require_once ("helpers.php");
+require_once ("loader.php")
 
  ?>
 
@@ -45,10 +45,6 @@ require_once ("helpers.php");
             <a class="nav-link" href="faq.php">FAQ's</a>
           </li>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="abm.php">ABM</a>
-        </li>
-
           <?php if (isset($_SESSION['email']) && $_SESSION['email'] == true): ?>
               <a class="nav-link" href="logout.php">Logout</a>
               <?php else: ?>
@@ -57,6 +53,10 @@ require_once ("helpers.php");
 
             <?php endif; ?>
 
+            <?php
+            if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == 9): ?>
+                <a class="nav-link" href="abm.php">ABM</a>
+              <?php endif; ?>
           </ul>
       </div>
     </nav>

@@ -33,7 +33,7 @@ CREATE TABLE `users` (
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(200) NOT NULL,
   `avatar` VARCHAR(45) NULL,
-  `perfil` VARCHAR(45) NOT NULL,
+  `perfil` int(8) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

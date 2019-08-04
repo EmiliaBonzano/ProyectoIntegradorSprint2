@@ -40,7 +40,7 @@ static public function buscarPorEmail($email,$pdo,$tabla){
         $sql = "insert into $tabla (nombre,apellido,email,password,avatar,perfil) values (:nombre,:apellido,:email,:password,:avatar,:perfil )";
         $query = $pdo->prepare($sql);
         $query->bindValue(':nombre',$usuario->getNombre());
-        $query->bindValue(':nombre',$usuario->getApellido());
+        $query->bindValue(':apellido',$usuario->getApellido());
         $query->bindValue(':email',$usuario->getEmail());
         $query->bindValue(':password',Encriptar::hashPassword($usuario->getPassword()));
         $query->bindValue(':avatar',$avatar);

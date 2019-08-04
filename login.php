@@ -1,25 +1,30 @@
 <?php
-require_once ("funciones.php");
+//require_once ("funciones.php");
 require_once ("helpers.php");
+require_once ("loader.php");
 if($_POST){
-  $errores = validar($_POST, "login");
-  if(count($errores)==0){
-    $usuario = buscarEmail($_POST["email"]);
-    if ($usuario==null) {
-      $errores["email"]="Correo electrónico o contraseña incorrectos";
-    } else {
-      if (password_verify($_POST["password"],$usuario["password"])===false) {
-        $errores["password"]="Correo electrónico o contraseña incorrectos";
-      } else {
-        sesionUsuario($usuario, $_POST);
-//4/junio llegamos hasta validarUsuario en Login. Nos falta crea perfil.php y registro.php
-        if(validarUsuario()){
-          header("location: index.php");
-          exit;
+  $usuario = new Usuario(null, null, $_POST["email"],$_POST["password"]);
+        $errores= $validar->validacionLogin($usuario);
+        if(count($errores)==0){
+        $usuarioEncontrado = Mysql::buscarPorEmail($usuario->getEmail(),$pdo,'users');
+        if($usuarioEncontrado == false){
+          $errores["email"]="Usuario no registrado";
+        }else{
+          if(Autenticador::verificarPassword($usuario->getPassword(),$usuarioEncontrado["password"] )!=true){
+            $errores["password"]="Error en los datos verifique";
+          }else{
+            Autenticador::seteoSesion($usuarioEncontrado);
+            if(isset($_POST["recordar"])){
+              Autenticador::seteoCookie($usuarioEncontrado);
+            }
+            if(Autenticador::validarUsuario()){
+              redirect("index.php");
+            }else{
+              redirect("registro.php");
+            }
+          }
         }
-}
-}
-}
+      }
 }
 
 ?>

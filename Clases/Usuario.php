@@ -16,7 +16,7 @@ class Usuario{
     $this-> nombre = $nombre;
     $this-> apellido = $apellido;
     $this-> avatar = $avatar;
-    $this-> perfil =1;
+    $this-> perfil =$perfil;
   }
 
   public function getEmail(){
@@ -27,10 +27,6 @@ class Usuario{
   public function setEmail($email){
     $this->email = $email;
   }
-  public function getPerfil(){
-    return $this->perfil;
-  }
-
 
   public function getPassword(){
     return $this->password;
