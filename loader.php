@@ -22,7 +22,7 @@ require_once("clases/BaseJSON.php");
   $puerto = "3306";
   $charset = "utf8mb4";
 
-  $pdo = mysql::conexion($host,$bd,$usuario,$password,$puerto,$charset);
+  $pdo = Mysql::conexion($host,$bd,$usuario,$password,$puerto,$charset);
 
 //Agregado por Lu el 22/7
   $validar = new Validador();

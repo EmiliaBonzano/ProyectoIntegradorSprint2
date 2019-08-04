@@ -23,6 +23,8 @@ USE `sistema_venta`;
 
 
 DROP TABLE IF EXISTS `users` ;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -40,20 +42,21 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 
 LOCK TABLES `users` WRITE;
-
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES(1,"Pedro","Malbran","pm@gmail.com","$2y$10$i49LHz.3zVQ2vUkOyHNelOpeoSQkvZ6b\/JWwmWml162aWHt.EMVSS","5d3dac79d968b.jpg",1);
 INSERT INTO `users` VALUES(2,"Emilia","Bolzano","emi@gmail.com","$2y$10$x5QxEs04fJ2lIYLWntmkxuAgE9IUGbzKDTdQhgaiBoQKnp734TWne","5cf70bc2ecac1.jpg",9);
 INSERT INTO `users` VALUES(3,"Luciana","Ferreiro","luli@gmail.com","$2y$10$7YR7QtbLenPkHmAMl0tcYu\/yskYrfjGcLJ4DXrP3B6ioy.vTLZzyK","5cf70afb7e85a.jpg",1);
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-
-
 UNLOCK TABLES;
 
 --
 
-CREATE TABLE `sistema_venta`.`muebles` (
+DROP TABLE IF EXISTS `muebles` ;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+
+CREATE TABLE `muebles` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `precio` VARCHAR(45) NOT NULL,
@@ -62,10 +65,20 @@ CREATE TABLE `sistema_venta`.`muebles` (
   `ancho` DECIMAL(2) NULL,
   `profundidad` DECIMAL(2) NULL,
   `descripcion` VARCHAR(1000) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `muebles`
+--
+
+--LOCK TABLES `muebles` WRITE;
+--/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+--INSERT INTO `muebles` VALUES ;
+--/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+--UNLOCK TABLES;
+
 
 
 -- Dumping routines for database 'sistema_venta'

@@ -44,7 +44,7 @@ static public function buscarPorEmail($email,$pdo,$tabla){
         $query->bindValue(':email',$usuario->getEmail());
         $query->bindValue(':password',Encriptar::hashPassword($usuario->getPassword()));
         $query->bindValue(':avatar',$avatar);
-        $query->bindValue('perfil',1);
+        $query->bindValue(':perfil',1);
         $query->execute();
     }
 

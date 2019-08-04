@@ -9,22 +9,28 @@ class Usuario{
   private $avatar;
   private $perfil;
 
-  public function __construct($nombre=null, $apellido=null, $email, $password, $repassword=null, $avatar=null){
+  public function __construct($nombre=null, $apellido=null, $email, $password, $repassword=null, $avatar=null, $perfil=null){
     $this-> email= $email;
     $this-> password = $password;
     $this -> repassword = $repassword;
     $this-> nombre = $nombre;
     $this-> apellido = $apellido;
     $this-> avatar = $avatar;
+    $this-> perfil =1;
   }
 
   public function getEmail(){
     return $this->email;
   }
 
+
   public function setEmail($email){
     $this->email = $email;
   }
+  public function getPerfil(){
+    return $this->perfil;
+  }
+
 
   public function getPassword(){
     return $this->password;
